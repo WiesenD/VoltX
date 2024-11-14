@@ -31,11 +31,36 @@ def parallele_widerstaende():
     if R:
         Rtot = 1 / sum(1/r for r in R)
         print("\n")
-        print("Die Widerstände waren: ",R)
+        print("Die Widerstaende waren: ",R)
         print("Rtot =", Rtot)
         print("\n")
     else:
         print("Keine Widerstände eingegeben.\n\n")
+        
+    wait()
+    
+# Funktion für Serie Schaltungen
+def serie_widerstaende():
+    initialize()
+    
+    R=[]
+    i=1
+    
+    while True:
+        Ri = input(f"R{i} eingeben: ")
+        if Ri == '':
+            break
+        R.append(int(Ri))
+        i+=1
+        
+    if R:
+        Rtot = sum(r for r in R)
+        print("\n")
+        print("Die Widerstände waren: ",R)
+        print("Rtot =", Rtot)
+        print("\n")
+    else:
+        print("Keine Widerstaende eingegeben.\n\n")
         
     wait()
 
@@ -92,8 +117,9 @@ def print_menu():
 # "Menü" 
 funktionen = {
     1: parallele_widerstaende,
-    2: dreieck_zu_stern,
-    3: stern_zu_dreieck,
+    2: serie_widerstaende,
+    3: dreieck_zu_stern,
+    4: stern_zu_dreieck,
     0: beenden
 }
 
@@ -105,11 +131,13 @@ while True:
     auswahl = int(input("Programm Auswaehlen:\n\n"))
     try:
         if auswahl == 1:
-            parallele_widerstaende ()
+            parallele_widerstaende()
         elif auswahl == 2:
-            dreieck_zu_stern ()
+            serie_widerstaende()
         elif auswahl == 3:
-            stern_zu_dreieck ()
+            dreieck_zu_stern()
+        elif auswahl == 4:
+            stern_zu_dreieck()
         elif auswahl == 0:
             cls()
             break
