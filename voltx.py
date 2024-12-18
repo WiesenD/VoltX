@@ -178,7 +178,7 @@ def exp_RT():
     elif T2_string == '':
         case = 3
     elif TCRa_string == '' or TCRb_string == '':
-        case = 4
+        case = 4        
    
     R20 = float(R20_string) if R20_string else None
     RT = float(RT_string) if RT_string else None
@@ -216,7 +216,7 @@ def exp_RT():
     
     print("\n")
     wait()
-    
+      
 # Funktion zur Menü-Darstellung
 def print_menu():
     print("Was willst du machen?")
@@ -231,7 +231,7 @@ funktionen = {
     3: dreieck_zu_stern,
     4: stern_zu_dreieck,
     5: lin_RT,
-    6: exp_RT
+    6: exp_RT,
 }
 
 # Auswahl der Menüpunkte
